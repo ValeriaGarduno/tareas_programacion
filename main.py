@@ -1,33 +1,18 @@
 from curso import Curso
 from estudiante import Estudiante
 
-while True:
-    print("\n*** BIENVENIDO ***")
-    print("Opciones en el Sistema")
-    print("1. Registrar Curso")
-    print("2. Mostrar Cursos")
-    print("3. Salir")
+curso1 = Curso("Matemáticas", 50, "Profesor A")
+curso2 = Curso("Historia", 20, "Profesor B")
+curso3 = Curso("Fisica", 30, "Profesor C")
 
-    opcion = input("Ingresa la opción que deseas: ")
 
-    if opcion == "1":
-        id = int(input("Ingresa el id del estudiante: "))
-        if id == "1234":
-            curso = Curso("Progra 1", 1, "Javier")
-            estudiante_uno.agregar_curso(curso)
-
-        elif id== "2345":
-            curso = Curso("Dibujo", 2, "Ponciano")
-            estudiante_dos.agregar_curso(curso)
-            
-        estudiante_dos = Estudiante(nombre="Alejandra", edad=22, cursos=curso, id=2345)
-        estudiante_uno = Estudiante(nombre="Roberto", edad=20, cursos=curso, id=1234)
-        print("\n Curso agregado correctamente")
-    
-    elif opcion == "2":
-        estudiante_uno.mostrar_info()
-        estudiante_dos.mostrar_info()
-    
-    elif opcion == "3":
-        print("\nHasta luego")
-        break
+estudiante1 = Estudiante("Juan", 20, 12345)
+estudiante2 = Estudiante("Ale", 22, 23456)
+estudiante3 = Estudiante("Lola", 21, 34567)
+estudiante1.agregar_curso(curso1)
+estudiante2.agregar_curso(curso1)
+estudiante2.agregar_curso(curso3)
+estudiante3.agregar_curso(curso2)
+estudiante2.mostrar_info()
+estudiante1.mostrar_info()
+estudiante3.mostrar_info()
