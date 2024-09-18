@@ -1,22 +1,3 @@
-"""
-- Pacientes
-- Médicos
-- Consultas
-- Medicamentos
-"""
-
-from paciente.paciente import Paciente
-from medico.medico import Medico
-from hospital.hospital import Hospital
-
-hospital = Hospital()
-
-paciente = Paciente() # 5
-
-medico1 = Medico() # 8
-
-hospital.registrar_paciente(paciente=paciente)
-hospital.registrar_medico(medico=medico1)
 
 from paciente.paciente import Paciente
 from hospital.hospital import Hospital
