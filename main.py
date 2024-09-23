@@ -50,10 +50,16 @@ while True:
         escuela.registrar_maestro(maestro)
     
     elif opcion == "3":
-        mecanica = Materia("Mecanica", "Javier", "MATERIA IMPRATIDA POR UN INGENIERO EN MECANICA 5 DIAS A LA SEMANA", creditos = 7 , semestre = 3)
-        id = escuela.generar_id_maestro(mecanica.nombrem, mecanica.semestre, mecanica.creditos)
+        nombrem = input("Ingresa rnombre de la materia")
+        semestre = int(input("Ingresa no. semestre que la cursa"))
+        instructor = input("Ingresa instructor de la materia")
+        creditos = int(input("Ingresa no. creditos de la materia"))
+        descripcion = input("Ingresa descripcion de la materia")
+        id = escuela.generar_id_maestro(nombrem, semestre, creditos)
         print(id)
         
+        materia = Materia(nombrem, instructor, descripcion, semestre, creditos)
+        escuela.registrar_materia(materia)
     elif opcion == "4":
         pass
     

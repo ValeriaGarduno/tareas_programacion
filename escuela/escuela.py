@@ -34,5 +34,8 @@ class Escuela:
     
     def generar_id_maestro(self, nombrem: str, semestre: int, creditos: int):
         id = f"MT{nombrem[-2:].upper()}{semestre}{creditos}{randint(100,1000)}"
-#"MT {ultimos dos digitos del nombre, semestre, cantidad creditos, random del 1-1000}"
+        #"MT {ultimos dos digitos del nombre, semestre, cantidad creditos, random del 1-1000}"
         return id
+        
+    def registrar_materia(self, materia: Materia):
+        self.lista_materias.append
