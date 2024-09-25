@@ -7,7 +7,7 @@ class Materia:
         self.semestre = semestre
         self.creditos = creditos
         self.id = id 
-    def mostrar_info_materia(self):
-        
+
+    def mostrar_info_materias(self):
         info = f"Instructor: {self.instructor}, Nombre Completo: {self.nombrem}, Descripcion: {self.descripcion}, Semestre: {self.semestre},ID: {self.id}"
         return info
