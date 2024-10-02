@@ -5,13 +5,17 @@ from maestros.maestros import Maestro
 from materias.materias import Materia
 from datetime import datetime
 from  random import randint
-from typing import List
+from carrera.carrera import Carrera
+from semestre.semestre import Semestre
+
 
 class Escuela:
     lista_estudiantes: List[Estudiante] = []
     lista_maestro: List[Maestro] = []    
     lista_grupos: List[Grupo] = []    
     lista_materias: List[Materia] = []  
+    lista_carreras: List[Carrera] = []  
+    lista_semestre: List[Semestre] = []  
     
     #lista materias
     
@@ -22,6 +26,28 @@ class Escuela:
         ##L - 2024- 09- longiud lista estudiante + 1 +random(0,10000)
         numero_control = f"I{datetime.now().year}{datetime.now().month}{len(self.lista_estudiantes) + 1}{randint(1,1000)} "
         return numero_control
+    
+    def registrar_grupo(self, grupo: Grupo):
+        id_semestre= grupo.id_semestre
+
+        for semestre in self.lista_semestre:
+            if id_semestre == semestre.id:
+                semestre.registrar_grupo_en_semestre(grupo=grupo)
+                break
+
+        self.lista_grupos.append(grupo)
+    
+    def registrar_semestre(self, semestre: Semestre):
+        id_carrea = semestre.id
+        for carrera in self.lista_carreras:
+            carrera.registrar_semsetre(semestre=semestre)
+            break
+            
+        self.lista_semestre.append(semestre)
+
+    def registrar_carrera(self, carrera: Carrera):
+        self.lista_carreras.append(carrera)
+    
     
     def registrar_maestro(self, maestros: Maestro):
         self.lista_maestro.append(maestros)
@@ -49,6 +75,21 @@ class Escuela:
         print("Mestros")
         for maestro in self.lista_maestro:
             print (maestro.mostrar_info_maestro()) 
+
+    def listar_semestre(self):
+        print("Semestre")
+        for semestre in self.lista_semestre:
+            print (semestre.info_semestre()) 
+
+    def listar_grupo(self):
+        print("Grupo")
+        for grupo in self.lista_grupos:
+            print (grupo.info_grupo()) 
+
+    def listar_carrera(self):
+        print("Carrera")
+        for carrera in self.lista_carreras:
+            print (carrera.info_carrera()) 
 
     def listar_materia(self):
         print("Materias")

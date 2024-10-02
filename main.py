@@ -3,7 +3,9 @@ from estudiantes.estudiantes import Estudiante
 from datetime import datetime
 from maestros.maestros import Maestro
 from materias.materias import Materia
-
+from carrera.carrera import Carrera
+from semestre.semestre import Semestre
+from grupo.grupo import Grupo
 escuela = Escuela()
 
 while True:
@@ -20,7 +22,11 @@ while True:
     print("10. Eliminar estudiante")
     print("11. Eliminar maestro")
     print("12. Eliminar materia")
-    print("13. Salir")
+    print("13. Registrar Carrera")
+    print("14. Registrar Semestre")
+    print("15. Mostrar Semestre")
+    print("16. Mostrar Carrera")
+    print("17. Salir")
     
     
     opcion = input("Ingresa una opcion para continuar: ")
@@ -67,8 +73,14 @@ while True:
         
         materia = Materia(nombrem, instructor, descripcion, semestre, creditos)
         escuela.registrar_materia(materia)
+
+
     elif opcion == "4":
-        pass
+        tipo = input("Ingresa tipo de grupo A/B")
+        id_semestre = input("ID semestre")
+        grupo = Grupo(tipo=tipo, id_semestre=id_semestre)
+        escuela.registrar_grupo(grupo=grupo)
+
     
     elif opcion == "5":
         pass
@@ -81,6 +93,9 @@ while True:
     
     elif opcion == "8":
         escuela.listar_materia()
+
+    elif opcion == "9":
+        escuela.listar_grupo()
 
     elif opcion == "10":
         print("eleccionaste la opcion eliminar estudiante")
@@ -98,6 +113,23 @@ while True:
         escuela.eliminar_materia(id=id)
 
     elif opcion == "13":
+        nombre = input("Ingresa nombre de la carrera")
+        carrera = Carrera(nombre=nombre)
+
+    elif opcion == "14":
+        numero = input("Ingresa nombre del semestre")
+        id_carrera = input("Ingresa ID  carrera")
+
+        semestre = Semestre(numero=numero, id_carrera=id_carrera)
+        escuela.registrar_semestre(semestre=semestre)
+
+    elif opcion == "15":
+        escuela.listar_semestre()
+
+    elif opcion == "16":
+        escuela.listar_carrera()
+
+    elif opcion == "17":
         print("Hasta luego")
         break
     
