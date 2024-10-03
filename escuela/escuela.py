@@ -1,10 +1,10 @@
 from typing import List
+from datetime import datetime
+from random import randint
 from estudiantes.estudiantes import Estudiante
 from grupo.grupo import Grupo
 from maestros.maestros import Maestro
 from materias.materias import Materia
-from datetime import datetime
-from  random import randint
 from carrera.carrera import Carrera
 from semestre.semestre import Semestre
 
@@ -52,11 +52,11 @@ class Escuela:
     def registrar_maestro(self, maestros: Maestro):
         self.lista_maestro.append(maestros)
     
-    def generar_numero_control_maestro(self, nombre: str, rfc: str):
+    def generar_numero_control(self, nombre: str, rfc: str):
         ### M-2004-DIA-random(500,5000)-Primeras dos letras nombre- Ultimas dos letras RFC- Longitud lista profes +1
         
-        numero_control_maestro = f"M{datetime.now().year}{datetime.now().day}{randint(500,5000)}{nombre[:2].upper()}{rfc[-2:].upper()}{len(self.lista_maestro) + 1}"
-        return numero_control_maestro
+        numero_control = f"M{datetime.now().year}{datetime.now().day}{randint(500,5000)}{nombre[:2].upper()}{rfc[-2:].upper()}{len(self.lista_maestro) + 1}"
+        return numero_control
     
     def generar_id_materia(self, nombrem: str, semestre: int, creditos: int):
         id = f"MT{nombrem[-2:].upper()}{semestre}{creditos}{randint(100,1000)}"
@@ -104,13 +104,13 @@ class Escuela:
                 return
         print(f"no se encontro estudiante con no. control: {numero_control}")
 
-    def eliminar_maestro(self, numero_control_maestro: str):
+    def eliminar_maestro(self, numero_control: str):
         for maestro in self.lista_estudiantes:
-            if maestro.numero_control == numero_control_maestro:
+            if maestro.numero_control == numero_control:
                 self.lista_maestro.remove(maestro)
                 print("estudiante eliminado")
                 return
-        print(f"no se encontro maestro con no. control: {numero_control_maestro}")
+        print(f"no se encontro maestro con no. control: {numero_control}")
 
     def eliminar_materia(self, id: str):
         for materia in self.lista_materias:

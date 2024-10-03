@@ -1,11 +1,6 @@
 from typing import List
-from estudiantes.estudiantes import Estudiante
 from semestre.semestre import Semestre
-from maestros.maestros import Maestro
-from materias.materias import Materia
-from datetime import datetime
-from  random import randint
-from typing import List
+from random import randint
 
 class Carrera:
     matricula: str
@@ -20,7 +15,7 @@ class Carrera:
     def generar_id_carrera(self, nombre: int) -> str:
         return f"{nombre}-{randint(0,100000)}-{randint(0,100000)}"
     
-    def registrar_semsetre(self, semestre: Semestre):
+    def registrar_semsetre(self, semestres: Semestre):
         self.semestres.append()
 
     def info_carrera(self):

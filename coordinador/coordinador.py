@@ -2,7 +2,7 @@ from datetime import datetime
 from usuario.usuario import Usuario
 from usuario.utils.roles import Rol
 
-class Estudiante(Usuario):
+class Coordinador(Usuario):
     curp: str
     fecha_nacimiento: datetime
     
@@ -11,7 +11,7 @@ class Estudiante(Usuario):
         self.curp = curp
         self.fecha_nacimiento = fecha_nacimiento
         
-    def mostrar_info_estudiante(self):
+    def mostrar_info_coordinador(self):
         nombre_completo = f"{self.nombre} {self.apellido}"
         info = f"Numero de control: {self.numero_control}, Nombre Completo: {nombre_completo}, Curp: {self.curp}, Fecha de Nacimiento: {self.fecha_nacimiento}, ROL: {self.rol.value}"
         return info

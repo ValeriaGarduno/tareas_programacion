@@ -1,6 +1,5 @@
 from typing import List
 from estudiantes.estudiantes import Estudiante
-from datetime import datetime
 from maestros.maestros import Maestro
 from materias.materias import Materia
 from random import randint
