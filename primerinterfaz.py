@@ -37,6 +37,9 @@ def dividir():
         messagebox.showinfo("Resultado", f"La division es: {division}")
     except ValueError:
         messagebox.showerror("Error", "Por favor, ingresa números válidos.")
+    except ZeroDivisionError as e:
+        messagebox.showerror("Syntax Error", {e})
+        
  
 
 ventana = tk.Tk()
